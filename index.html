@@ -1,14 +1,14 @@
 ---
 layout:default
-title:longµÄblog
+title:longçš„blog
 ---
 
 <h2> {{page.title}} </h2>
-<p>×îÐÂ²©¿Í</p>
+<p>æœ€æ–°æ–‡ç« </p>
 <ul>
     {% for post in site.posts %}
         <li>{{ post.date|date_to_string }}
-	    <a href="{{ site.baseurl }}{{post.url}}">{{post.title}}</a>
+	    <a href="{{post.url}}">{{post.title}}</a>
 	</li>
     {% end for %}
 </ul>
