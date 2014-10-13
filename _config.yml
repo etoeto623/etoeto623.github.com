@@ -1,4 +1,4 @@
-baseurl:http://etoeto623.github.io/blog/
+baseurl:http://etoeto623.github.io/
 gems:
 - jekyll-mentions
 - jemoji
