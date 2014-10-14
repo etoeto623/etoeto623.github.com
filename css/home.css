@@ -1,0 +1,8 @@
+body{padding: 0px;margin: 0px;background-color:#F5F5D5;}
+a{text-decoration: none;}
+.body_wrap{padding: 10px 30px;border: 1px solid red;}
+
+.new_article{border-bottom: 1px solid #0067B3;}
+.new_article span{margin: 3px;padding: 3px;}
+.new_article .new_block{height: 5em;width: 80%;overflow: hidden;}
+.new_article .new_block .brief{height: 3em;width: 80%;overflow: hidden;}
