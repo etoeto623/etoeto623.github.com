@@ -20,13 +20,13 @@
 
 			<div class="switch_article">
 				{% if page.previous %}
-					<a href="{{ page.previous.url }}" class="previous">&lt&lt&lt{{ page.previous.title }}</a>
+					<a href="{{ page.previous.url }}" class="previous" title="{{ page.previous.title }}">&lt&lt&lt上一篇</a>
 				{% else %}
 					<a href="javascript:void(0)" class="previous">没有更早文章</a>
 				{% endif %}
 
 				{% if page.next %}
-					<a href="{{ page.next.url }}" class="next">{{ page.next.title }}&gt&gt&gt</a>
+					<a href="{{ page.next.url }}" class="next" title="{{ page.next.title }}">下一篇&gt&gt&gt</a>
 				{% else %}
 					<a href="javascript:void(0)" class="next">没有更新文章</a>
 				{% endif %}

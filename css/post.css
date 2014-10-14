@@ -4,5 +4,6 @@ a{text-decoration: none;}
 .content_wrap{width:80%;margin:20px 10%;}
 
 .switch_article{padding: 10px;}
+.switch_article > a{color:green;}
 .switch_article .previous{float:left;}
 .switch_article .next{float:right;}
