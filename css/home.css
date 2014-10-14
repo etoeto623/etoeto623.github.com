@@ -1,8 +1,11 @@
 body{padding: 0px;margin: 0px;background-color:#F5F5D5;}
 a{text-decoration: none;}
-.body_wrap{padding: 10px 30px;border: 1px solid red;}
+.body_wrap{padding: 10px 30px;/*border: 1px solid red;*/width:80%;margin:0px 13% 0px 7%;}
 
 .new_article{border-bottom: 1px solid #0067B3;}
 .new_article span{margin: 3px;padding: 3px;}
 .new_article .new_block{height: 5em;width: 80%;overflow: hidden;}
 .new_article .new_block .brief{height: 3em;width: 80%;overflow: hidden;}
+
+.article_list{width:50%;margin-top: 20px;}
+.article_list ul li{list-style-image:url('../images/li_arrow.gif');padding:3px;}
