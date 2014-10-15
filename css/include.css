@@ -20,4 +20,5 @@
 /*
  *尾部样式
  */
-.footer_wrap{height:100px;width:100%;}
+.footer_wrap{height:100px;width:80%;border-top:1px solid #0067B3;margin-left: 10%;margin-right: 10%;padding-top: 30px; }
+.footer_wrap .copyright{text-align: center;vertical-align: middle;color: green;}

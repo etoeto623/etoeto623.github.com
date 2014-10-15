@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/include.css">
 		<link rel="stylesheet" type="text/css" href="../css/home.css">
+		<link rel="shortcut icon" href="/images/shortcut.gif">
 		<title>{{ page.title }}</title>
 	</head>
 	<body>
@@ -30,6 +31,11 @@
 							<span style="float:right;color:green;">{{ post.date|date:'%Y-%m-%d' }}</span>
 						</li>
 					{% endfor %}
+					{% if site.posts.size > 7 %}
+						<li>
+							<a href="{{ site.list }}" style="font-size:14px;font-weight:800;color:green;">更多文章...</a>
+						</li>
+					{% endif %}
 				</ul>
 			</div>	
 		</div>
