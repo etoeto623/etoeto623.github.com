@@ -52,7 +52,7 @@
   
   
 
-  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <body class="main-center theme-black main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
     <div class="slimContent">
       <div class="navbar-header">
         <div class="profile-block text-center">
@@ -312,259 +312,187 @@ function tagCloud(where, min, max) {
         <h1 itemprop="name">
   <a
     class="article-title"
-    href="/post/heap-sort/"
-    >堆排序</a
+    href="/post/netty-async-http/"
+    >基于netty的异步http请求</a
   >
 </h1>
 
       </div>
       <div class="article-entry text-muted" itemprop="description">
-        堆排序的简介 堆排序是一种选择排序，使用了堆这种数据结构。堆就是一种完全二叉树 核心思想就是将数组中的最大的数挑选出来，然后再将子数组的最大的数
+        代码目录 代码目录如下： asynchttp – AsyncClient – AsyncHttpMain – GenericHandler – HttpHandler 参考地址 代码示例 AsyncClient import io.netty.bootstrap.Bootstrap; import io.netty.channel.ChannelFuture; import io.netty.channel.ChannelInitializer; import io.netty.channel.ChannelOption; import io.netty.channel.EventLoopGroup; import io.netty.channel.nio.NioEventLoopGroup; import io.netty.channel.socket.SocketChannel; import io.netty.channel.socket.nio.NioSocketChannel; import io.netty.handler.codec.http.DefaultFullHttpRequest; import io.netty.handler.codec.http.HttpMethod; import io.netty.handler.codec.http.HttpRequestEncoder; import io.netty.handler.codec.http.HttpResponseDecoder; import io.netty.handler.codec.http.HttpVersion; import io.netty.util.concurrent.EventExecutorGroup; import org.apache.commons.lang3.time.DateFormatUtils; import java.net.URI; import java.util.Date; import java.util.Map; public class AsyncClient { final
       </div>
       <p class="article-meta">
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/heap-sort/" class="">
-  <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/algorithm/"> algorithm </a>
-    <a class="article-tag-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"> 排序算法 </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 588字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/docker-build/"
-    >构建docker镜像</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/docker-build/" class="">
-  <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/docker/"> docker </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1099字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/git-change-commit-msg/"
-    >git修改提交commit消息</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        修改最新提交的消息 修改最新一次提交的消息，只要一条命令即可，如下： git commit --amend 然后进入交互式的修改界面，修改后提交即可 修改历史提交的消息 如果需要修
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/git-change-commit-msg/" class="">
-  <time datetime="2021-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-09</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/git/"> git </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 330字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/redis-types/"
-    >redis的五种类型</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        redis中有五种数据类型，分别是： string hash set zset list string类型 最常用的就是string类型，以key-value的方式存在内存中 常用的命令 命
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/redis-types/" class="">
-  <time datetime="2021-06-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-08</time>
-</a>
-</span>
-
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2575字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/go-channel/"
-    >go中的channel</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/go-channel/" class="">
-  <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/golang/"> golang </a>
-    <a class="article-tag-link" href="/tags/channel/"> channel </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1235字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/go-concurrent/"
-    >go语言的并发</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        并发和并行 并发 并发是通过时间片轮转的方式，让多个任务在一个物理处理器上轮流执行，同一时间只有一个任务在执行 并行 并行是让多个任务在多个物理处理
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/go-concurrent/" class="">
-  <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/golang/"> golang </a>
-    <a class="article-tag-link" href="/tags/%E5%B9%B6%E5%8F%91/"> 并发 </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 603字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/fastjson-circularref/"
-    >fastjson的循环引用序列化</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        问题描述 使用fastjson进行对象序列化(JSON.toJSONString)时，如果需要格式化的对象中存在对象的循环引用，即A-&gt;
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/fastjson-circularref/" class="">
+<a href="https://etoeto623.github.io/post/netty-async-http/" class="">
   <time datetime="2021-05-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-31</time>
 </a>
 </span>
   
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/fastjson/"> fastjson </a>
+    <a class="article-tag-link" href="/tags/netty/"> netty </a>
+    <a class="article-tag-link" href="/tags/%E5%BC%82%E6%AD%A5/"> 异步 </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 243字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 552字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
+      </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/post/latex-start/"
+    >ubuntu中安装latex</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        总览 ubuntu中使用latex，需要用到texlive（latex核心系统）和texmaker（latex编辑器），同时需要中文支持的话，
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://etoeto623.github.io/post/latex-start/" class="">
+  <time datetime="2021-05-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-28</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/latex/"> latex </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 590字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
+      </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/post/pattern/"
+    >测试文档</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        test 测试行内$y=mc^2$公式 名字 年龄 大小 张三 23 1 盾 李四 24 2 另一个 29 3 $$ f(x)=\int_{-\infty}^\infty\widehat f\xi\,e^{2\pi i\xi x}\,d\xi $$
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://etoeto623.github.io/post/pattern/" class="">
+  <time datetime="2021-05-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-25</time>
+</a>
+</span>
+  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/%E6%95%B0%E5%AD%A6/"> 数学 </a>
+    <a class="article-tag-link" href="/tags/%E5%85%AC%E5%BC%8F/"> 公式 </a>
+    <a class="article-tag-link" href="/tags/%E6%B5%8B%E8%AF%95/"> 测试 </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 41字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+      </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/post/hugo_use/"
+    >hugo 的使用</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        安装 hugo hugo 是使用 go 开发的，所以需要安装 go。go 的安装步骤参考官网 export PATH=$PATH:/usr/local/go/bin 下载 hugo 参考hugo github的步骤将 mkdir $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install hugo 的使用 参考hu
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://etoeto623.github.io/post/hugo_use/" class="">
+  <time datetime="2021-05-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-23</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/hugo/"> hugo </a>
+    <a class="article-tag-link" href="/tags/%E5%8D%9A%E5%AE%A2/"> 博客 </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 201字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+      </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/post/math/"
+    >数学公式的使用</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        $$\begin{cases} a_1x+b_1y+c_1z=d_1\\ a_2x+b_2y+c_2z=d_2\\ a_3x+b_3y+c_3z=d_3\\ \end{cases} $$
+      </div>
+      <p class="article-meta">  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/math/"> math </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 6字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
       </p>
     </article></div>
   
 <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
-    <ul class="pager pull-left"><li class="next">
-        <a href="/page/2/">
-          <i class="icon icon-angle-right"></i>
+    <ul class="pager pull-left"><li class="prev">
+        <a href="/">
+          <i class="icon icon-angle-left"></i>
           
         </a>
       </li>
     </ul>
     <div class="total-article bar-right">
-      Page:1/2
+      Page:2/2
     </div>
   </div>
 </nav>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        基于netty的异步http请求 - Neo Blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="代码目录 代码目录如下： asynchttp – AsyncClient – AsyncHttpMain – GenericHandler – HttpHandler 参考地址 代码示例 AsyncClient import io.netty.bootstrap.Bootstrap; import io.netty.channel.ChannelFuture; import io.netty.channel.ChannelInitializer; import io.netty.channel.ChannelOption; import io.netty.channel.EventLoopGroup; import io.netty.channel.nio.NioEventLoopGroup; import io.netty.channel.socket.SocketChannel; import io.netty.channel.socket.nio.NioSocketChannel; import io.netty.handler.codec.http.DefaultFullHttpRequest; import io.netty.handler.codec.http.HttpMethod; import io.netty.handler.codec.http.HttpRequestEncoder; import io.netty.handler.codec.http.HttpResponseDecoder; import io.netty.handler.codec.http.HttpVersion; import io.netty.util.concurrent.EventExecutorGroup; import org.apache.commons.lang3.time.DateFormatUtils; import java.net.URI; import java.util.Date; import java.util.Map; public class AsyncClient { final" />
+    <meta name="generator" content="Hugo 0.83.1 with theme pure" />
+    <title>基于netty的异步http请求 - Neo Blog</title>
+    
+    
+    <link rel="stylesheet" href="https://etoeto623.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="基于netty的异步http请求" />
+<meta property="og:description" content="代码目录 代码目录如下： asynchttp – AsyncClient – AsyncHttpMain – GenericHandler – HttpHandler 参考地址 代码示例 AsyncClient import io.netty.bootstrap.Bootstrap; import io.netty.channel.ChannelFuture; import io.netty.channel.ChannelInitializer; import io.netty.channel.ChannelOption; import io.netty.channel.EventLoopGroup; import io.netty.channel.nio.NioEventLoopGroup; import io.netty.channel.socket.SocketChannel; import io.netty.channel.socket.nio.NioSocketChannel; import io.netty.handler.codec.http.DefaultFullHttpRequest; import io.netty.handler.codec.http.HttpMethod; import io.netty.handler.codec.http.HttpRequestEncoder; import io.netty.handler.codec.http.HttpResponseDecoder; import io.netty.handler.codec.http.HttpVersion; import io.netty.util.concurrent.EventExecutorGroup; import org.apache.commons.lang3.time.DateFormatUtils; import java.net.URI; import java.util.Date; import java.util.Map; public class AsyncClient { final" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etoeto623.github.io/post/netty-async-http/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-31T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-31T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="基于netty的异步http请求">
+<meta itemprop="description" content="代码目录 代码目录如下： asynchttp – AsyncClient – AsyncHttpMain – GenericHandler – HttpHandler 参考地址 代码示例 AsyncClient import io.netty.bootstrap.Bootstrap; import io.netty.channel.ChannelFuture; import io.netty.channel.ChannelInitializer; import io.netty.channel.ChannelOption; import io.netty.channel.EventLoopGroup; import io.netty.channel.nio.NioEventLoopGroup; import io.netty.channel.socket.SocketChannel; import io.netty.channel.socket.nio.NioSocketChannel; import io.netty.handler.codec.http.DefaultFullHttpRequest; import io.netty.handler.codec.http.HttpMethod; import io.netty.handler.codec.http.HttpRequestEncoder; import io.netty.handler.codec.http.HttpResponseDecoder; import io.netty.handler.codec.http.HttpVersion; import io.netty.util.concurrent.EventExecutorGroup; import org.apache.commons.lang3.time.DateFormatUtils; import java.net.URI; import java.util.Date; import java.util.Map; public class AsyncClient { final"><meta itemprop="datePublished" content="2021-05-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="552">
+<meta itemprop="keywords" content="netty,异步," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于netty的异步http请求"/>
+<meta name="twitter:description" content="代码目录 代码目录如下： asynchttp – AsyncClient – AsyncHttpMain – GenericHandler – HttpHandler 参考地址 代码示例 AsyncClient import io.netty.bootstrap.Bootstrap; import io.netty.channel.ChannelFuture; import io.netty.channel.ChannelInitializer; import io.netty.channel.ChannelOption; import io.netty.channel.EventLoopGroup; import io.netty.channel.nio.NioEventLoopGroup; import io.netty.channel.socket.SocketChannel; import io.netty.channel.socket.nio.NioSocketChannel; import io.netty.handler.codec.http.DefaultFullHttpRequest; import io.netty.handler.codec.http.HttpMethod; import io.netty.handler.codec.http.HttpRequestEncoder; import io.netty.handler.codec.http.HttpResponseDecoder; import io.netty.handler.codec.http.HttpVersion; import io.netty.util.concurrent.EventExecutorGroup; import org.apache.commons.lang3.time.DateFormatUtils; import java.net.URI; import java.util.Date; import java.util.Map; public class AsyncClient { final"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="" target="_blank">
+            <img class="img-circle img-rotate" src="https://etoeto623.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">neolong</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">学无止境</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shanghai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://etoeto623.github.io/tags/algorithm/" class="tag-list-link" rel="1">algorithm<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/channel/" class="tag-list-link" rel="1">channel<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/docker/" class="tag-list-link" rel="1">docker<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/fastjson/" class="tag-list-link" rel="1">fastjson<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/git/" class="tag-list-link" rel="1">git<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/golang/" class="tag-list-link" rel="2">golang<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/hugo/" class="tag-list-link" rel="1">hugo<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/latex/" class="tag-list-link" rel="1">latex<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/math/" class="tag-list-link" rel="1">math<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/netty/" class="tag-list-link" rel="1">netty<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E5%85%AC%E5%BC%8F/" class="tag-list-link" rel="1">公式<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E5%8D%9A%E5%AE%A2/" class="tag-list-link" rel="1">博客<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E5%B9%B6%E5%8F%91/" class="tag-list-link" rel="1">并发<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E5%BC%82%E6%AD%A5/" class="tag-list-link" rel="1">异步<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="tag-list-link" rel="1">排序算法<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E6%95%B0%E5%AD%A6/" class="tag-list-link" rel="1">数学<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://etoeto623.github.io/tags/%E6%B5%8B%E8%AF%95/" class="tag-list-link" rel="1">测试<span
+               class="tag-list-count">1</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://etoeto623.github.io/categories/%E6%95%99%E7%A8%8B/" class="category-list-link">教程</a><span class="category-list-count">4</span></li>
+        </ul>
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://etoeto623.github.io/post/heap-sort/" class="title">堆排序</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://etoeto623.github.io/post/docker-build/" class="title">构建docker镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://etoeto623.github.io/post/git-change-commit-msg/" class="title">git修改提交commit消息</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://etoeto623.github.io/post/redis-types/" class="title">redis的五种类型</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://etoeto623.github.io/post/go-channel/" class="title">go中的channel</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/post/netty-async-http/"
+    >基于netty的异步http请求</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://etoeto623.github.io/post/netty-async-http/" class="article-date">
+  <time datetime="2021-05-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-31</time>
+</a>
+</span>
+  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/netty/"> netty </a>
+    <a class="article-tag-link" href="/tags/%E5%BC%82%E6%AD%A5/"> 异步 </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 552字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+代码目录
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>代码目录如下：
+asynchttp</p>
+<table>
+<tbody>
+<tr>
+<td>– AsyncClient</td>
+</tr>
+<tr>
+<td>– AsyncHttpMain</td>
+</tr>
+<tr>
+<td>– GenericHandler</td>
+</tr>
+<tr>
+<td>– HttpHandler</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.cnblogs.com/tengpan-cn/p/6881969.html">参考地址</a></p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+代码示例
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+AsyncClient
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<div class="src src-java">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> io.netty.bootstrap.Bootstrap<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.ChannelFuture<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.ChannelInitializer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.ChannelOption<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.EventLoopGroup<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.nio.NioEventLoopGroup<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.socket.SocketChannel<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.socket.nio.NioSocketChannel<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.DefaultFullHttpRequest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.HttpMethod<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.HttpRequestEncoder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.HttpResponseDecoder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.HttpVersion<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.util.concurrent.EventExecutorGroup<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.commons.lang3.time.DateFormatUtils<span style="color:#f92672">;</span>
+ 
+<span style="color:#f92672">import</span> java.net.URI<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Date<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Map<span style="color:#f92672">;</span>
+ 
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AsyncClient</span> <span style="color:#f92672">{</span>
+ 
+    <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">static</span> EventExecutorGroup executor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NioEventLoopGroup<span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">static</span> EventLoopGroup g<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">static</span> Bootstrap b<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        g <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NioEventLoopGroup<span style="color:#f92672">();</span>
+        b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bootstrap<span style="color:#f92672">();</span>
+        b<span style="color:#f92672">.</span><span style="color:#a6e22e">group</span><span style="color:#f92672">(</span>g<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">(</span>NioSocketChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">option</span><span style="color:#f92672">(</span>ChannelOption<span style="color:#f92672">.</span><span style="color:#a6e22e">CONNECT_TIMEOUT_MILLIS</span><span style="color:#f92672">,</span> 5000<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+ 
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Object LOCK <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">();</span>
+ 
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> head<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> HttpHandler handler<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;---prepare to get: &#34;</span> <span style="color:#f92672">+</span> url<span style="color:#f92672">);</span>
+            URI uri <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URI<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+            String domain <span style="color:#f92672">=</span> uri<span style="color:#f92672">.</span><span style="color:#a6e22e">getHost</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">int</span> port <span style="color:#f92672">=</span> uri<span style="color:#f92672">.</span><span style="color:#a6e22e">getPort</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">?</span> 80 <span style="color:#f92672">:</span> uri<span style="color:#f92672">.</span><span style="color:#a6e22e">getPort</span><span style="color:#f92672">();</span>
+ 
+            DefaultFullHttpRequest request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DefaultFullHttpRequest<span style="color:#f92672">(</span>HttpVersion<span style="color:#f92672">.</span><span style="color:#a6e22e">HTTP_1_1</span><span style="color:#f92672">,</span> HttpMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">,</span> uri<span style="color:#f92672">.</span><span style="color:#a6e22e">toASCIIString</span><span style="color:#f92672">());</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Host&#34;</span><span style="color:#f92672">,</span> domain<span style="color:#f92672">);</span>
+                request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;User-Agent&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0&#34;</span><span style="color:#f92672">);</span>
+                request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Accept&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#34;</span><span style="color:#f92672">);</span>
+                request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Accept-Language&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3&#34;</span><span style="color:#f92672">);</span>
+                request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Connection&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;keep-alive&#34;</span><span style="color:#f92672">);</span>
+                request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cache-Control&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;max-age=0&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span> entry <span style="color:#f92672">:</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                    request<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">((</span>String<span style="color:#f92672">)</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">(),</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">());</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+ 
+            ChannelInitializer<span style="color:#f92672">&lt;</span>SocketChannel<span style="color:#f92672">&gt;</span> channelInitializer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ChannelInitializer<span style="color:#f92672">&lt;</span>SocketChannel<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initChannel</span><span style="color:#f92672">(</span>SocketChannel ch<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+                    ch<span style="color:#f92672">.</span><span style="color:#a6e22e">pipeline</span><span style="color:#f92672">().</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> HttpResponseDecoder<span style="color:#f92672">())</span>
+                            <span style="color:#f92672">.</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> HttpRequestEncoder<span style="color:#f92672">())</span>
+                            <span style="color:#f92672">.</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span>executor<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> GenericHandler<span style="color:#f92672">(</span>handler<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">};</span>
+ 
+            ChannelFuture f<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span>LOCK<span style="color:#f92672">){</span> <span style="color:#75715e">// 这里不进行同步的话，请求的handler会串
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">// 进行连接
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>DateFormatUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;yyyy-MM-dd HH:mm:ss SSS&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; prepare to connect: &#34;</span> <span style="color:#f92672">+</span> domain<span style="color:#f92672">);</span>
+                    b<span style="color:#f92672">.</span><span style="color:#a6e22e">handler</span><span style="color:#f92672">(</span>channelInitializer<span style="color:#f92672">);</span>
+                    Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>10<span style="color:#f92672">);</span>
+                    f <span style="color:#f92672">=</span> b<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">(</span>domain<span style="color:#f92672">,</span> port<span style="color:#f92672">).</span><span style="color:#a6e22e">sync</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
+                    handler<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> e<span style="color:#f92672">);</span>
+                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>DateFormatUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;yyyy-MM-dd HH:mm:ss SSS&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; connected to: &#34;</span> <span style="color:#f92672">+</span> domain<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            f<span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">().</span><span style="color:#a6e22e">writeAndFlush</span><span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+ 
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+ 
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+            executor<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdownGracefully</span><span style="color:#f92672">();</span>
+            g<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdownGracefully</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+ 
+<span style="color:#f92672">}</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+AsyncHttpMain
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<div class="src src-java">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.Map<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.concurrent.CountDownLatch<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.concurrent.ExecutorService<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.concurrent.Executors<span style="color:#f92672">;</span>
+ 
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AsyncHttpMain</span> <span style="color:#f92672">{</span>
+ 
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+        CountDownLatch latch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CountDownLatch<span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
+ 
+        ExecutorService executor <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newCachedThreadPool</span><span style="color:#f92672">();</span>
+ 
+        executor<span style="color:#f92672">.</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">(()-&gt;{</span>
+            AsyncClient<span style="color:#f92672">.</span><span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> HttpHandler<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handle</span><span style="color:#f92672">(</span>Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> headMap<span style="color:#f92672">,</span> String body<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;--- baidu: &#34;</span> <span style="color:#f92672">+</span> body<span style="color:#f92672">);</span>
+                    latch<span style="color:#f92672">.</span><span style="color:#a6e22e">countDown</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+                    latch<span style="color:#f92672">.</span><span style="color:#a6e22e">countDown</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+        <span style="color:#f92672">});</span>
+        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>100<span style="color:#f92672">);</span>
+        executor<span style="color:#f92672">.</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">(()-&gt;{</span>
+            String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://srv.dev.pajkdc.com/shield/m.api?_mt=liteworkflow.processQueryToDo&amp;applyer=&amp;pageNo=1&amp;pageSize=10&amp;taskType=&#34;</span><span style="color:#f92672">;</span>
+            AsyncClient<span style="color:#f92672">.</span><span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span>head<span style="color:#f92672">,</span>body<span style="color:#f92672">)-&gt;{</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;--- dev: &#34;</span> <span style="color:#f92672">+</span> body<span style="color:#f92672">);</span>
+                latch<span style="color:#f92672">.</span><span style="color:#a6e22e">countDown</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">});</span>
+        <span style="color:#f92672">});</span>
+ 
+        executor<span style="color:#f92672">.</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">(()-&gt;{</span>
+            AsyncClient<span style="color:#f92672">.</span><span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://srv.test.pajkdc.com/shield/api/cache/getValue?key=_DLK_tijian_TJ_PDF_UPLOAD_022012288000072017&#34;</span><span style="color:#f92672">,</span>
+                    <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span>head<span style="color:#f92672">,</span>body<span style="color:#f92672">)-&gt;{</span>
+                        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;---test: &#34;</span> <span style="color:#f92672">+</span> body<span style="color:#f92672">);</span>
+                        latch<span style="color:#f92672">.</span><span style="color:#a6e22e">countDown</span><span style="color:#f92672">();</span>
+                    <span style="color:#f92672">});</span>
+        <span style="color:#f92672">});</span>
+ 
+        executor<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdown</span><span style="color:#f92672">();</span>
+        latch<span style="color:#f92672">.</span><span style="color:#a6e22e">await</span><span style="color:#f92672">();</span>
+        AsyncClient<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+GenericHandler
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<div class="src src-java">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> io.netty.buffer.ByteBuf<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.ChannelHandlerContext<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.channel.ChannelInboundHandlerAdapter<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.HttpContent<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.netty.handler.codec.http.HttpResponse<span style="color:#f92672">;</span>
+ 
+<span style="color:#f92672">import</span> java.util.HashMap<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Map<span style="color:#f92672">;</span>
+ 
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GenericHandler</span> <span style="color:#66d9ef">extends</span> ChannelInboundHandlerAdapter <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> HttpHandler httpHandler<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> respLength <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">;</span>
+    Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> head <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+    String respContent <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+ 
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">GenericHandler</span><span style="color:#f92672">(</span>HttpHandler httpHandler<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">httpHandler</span> <span style="color:#f92672">=</span> httpHandler<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+ 
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">channelRead</span><span style="color:#f92672">(</span>ChannelHandlerContext ctx<span style="color:#f92672">,</span> Object msg<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>msg <span style="color:#66d9ef">instanceof</span> HttpResponse<span style="color:#f92672">){</span>
+            HttpResponse response <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>HttpResponse<span style="color:#f92672">)</span> msg<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span> entry <span style="color:#f92672">:</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">entries</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                head<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">((</span>String<span style="color:#f92672">)</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">(),</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Length&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                respLength <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">parseInt</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Length&#34;</span><span style="color:#f92672">));</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+ 
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>msg <span style="color:#66d9ef">instanceof</span> HttpContent<span style="color:#f92672">){</span>
+            HttpContent content <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>HttpContent<span style="color:#f92672">)</span> msg<span style="color:#f92672">;</span>
+            ByteBuf buf <span style="color:#f92672">=</span> content<span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">();</span>
+            respContent <span style="color:#f92672">+=</span> buf<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>httpHandler<span style="color:#f92672">.</span><span style="color:#a6e22e">charset</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">((</span>HttpContent<span style="color:#f92672">)</span> msg<span style="color:#f92672">).</span><span style="color:#a6e22e">release</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>respContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;=</span> respLength <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>buf<span style="color:#f92672">.</span><span style="color:#a6e22e">isReadable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">().</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+                httpHandler<span style="color:#f92672">.</span><span style="color:#a6e22e">handle</span><span style="color:#f92672">(</span>head<span style="color:#f92672">,</span> respContent<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+HttpHandler
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<div class="src src-java">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> io.netty.util.CharsetUtil<span style="color:#f92672">;</span>
+ 
+<span style="color:#f92672">import</span> java.nio.charset.Charset<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Map<span style="color:#f92672">;</span>
+ 
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">HttpHandler</span> <span style="color:#f92672">{</span>
+ 
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handle</span><span style="color:#f92672">(</span>Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> headMap<span style="color:#f92672">,</span> String body<span style="color:#f92672">);</span>
+ 
+    <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> Exception e<span style="color:#f92672">){</span>
+        e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+ 
+    <span style="color:#66d9ef">default</span> Charset <span style="color:#a6e22e">charset</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> CharsetUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">UTF_8</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    </div>
+    <div class="article-footer">
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://etoeto623.github.io/post/latex-start/" title="ubuntu中安装latex"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://etoeto623.github.io/post/fastjson-circularref/"
+                    title="fastjson的循环引用序列化"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+  <div class="copyright">
+    &copy;2017  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://etoeto623.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://etoeto623.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/etoeto623.github.io',
+            CONTENT_URL: 'https:\/\/etoeto623.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://etoeto623.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

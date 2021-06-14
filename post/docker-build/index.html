@@ -2,7 +2,8 @@
 <html lang="zh">
   <head>
     <title>
-        Neo Blog</title>
+        构建docker镜像 - Neo Blog
+      </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -19,25 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    
+    <meta name="description" content="镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础" />
     <meta name="generator" content="Hugo 0.83.1 with theme pure" />
-    <title>Neo Blog</title>
+    <title>构建docker镜像 - Neo Blog</title>
     
-    <link rel="alternate" type="application/rss+xml" href="https://etoeto623.github.io/index.xml" title="Neo Blog" />
     
     <link rel="stylesheet" href="https://etoeto623.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="Neo Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://etoeto623.github.io/" />
+    <meta property="og:title" content="构建docker镜像" />
+<meta property="og:description" content="镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etoeto623.github.io/post/docker-build/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-10T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-10T00:00:00&#43;00:00" />
 
-<meta itemprop="name" content="Neo Blog">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Neo Blog"/>
-<meta name="twitter:description" content=""/>
+<meta itemprop="name" content="构建docker镜像">
+<meta itemprop="description" content="镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础"><meta itemprop="datePublished" content="2021-06-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1099">
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="构建docker镜像"/>
+<meta name="twitter:description" content="镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -296,56 +301,20 @@ function tagCloud(where, min, max) {
 
     
     
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
 
-<main class="main" role="main">
-  
-  <div class="content article-list">
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
     
-    
-    
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/heap-sort/"
-    >堆排序</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        堆排序的简介 堆排序是一种选择排序，使用了堆这种数据结构。堆就是一种完全二叉树 核心思想就是将数组中的最大的数挑选出来，然后再将子数组的最大的数
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/heap-sort/" class="">
-  <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/algorithm/"> algorithm </a>
-    <a class="article-tag-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"> 排序算法 </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 588字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
+    <div class="article-header">
+      <h1 itemprop="name">
   <a
     class="article-title"
     href="/post/docker-build/"
@@ -353,14 +322,11 @@ function tagCloud(where, min, max) {
   >
 </h1>
 
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础
-      </div>
-      <p class="article-meta">
+      <div class="article-meta">
+        
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/docker-build/" class="">
+<a href="https://etoeto623.github.io/post/docker-build/" class="article-date">
   <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
 </a>
 </span>
@@ -375,199 +341,145 @@ function tagCloud(where, min, max) {
 
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1099字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/git-change-commit-msg/"
-    >git修改提交commit消息</a
-  >
-</h1>
-
       </div>
-      <div class="article-entry text-muted" itemprop="description">
-        修改最新提交的消息 修改最新一次提交的消息，只要一条命令即可，如下： git commit --amend 然后进入交互式的修改界面，修改后提交即可 修改历史提交的消息 如果需要修
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/git-change-commit-msg/" class="">
-  <time datetime="2021-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-09</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/git/"> git </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 330字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/redis-types/"
-    >redis的五种类型</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        redis中有五种数据类型，分别是： string hash set zset list string类型 最常用的就是string类型，以key-value的方式存在内存中 常用的命令 命
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/redis-types/" class="">
-  <time datetime="2021-06-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-08</time>
-</a>
-</span>
-
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2575字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/go-channel/"
-    >go中的channel</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/go-channel/" class="">
-  <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/golang/"> golang </a>
-    <a class="article-tag-link" href="/tags/channel/"> channel </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1235字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/go-concurrent/"
-    >go语言的并发</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        并发和并行 并发 并发是通过时间片轮转的方式，让多个任务在一个物理处理器上轮流执行，同一时间只有一个任务在执行 并行 并行是让多个任务在多个物理处理
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/go-concurrent/" class="">
-  <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/golang/"> golang </a>
-    <a class="article-tag-link" href="/tags/%E5%B9%B6%E5%8F%91/"> 并发 </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 603字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/fastjson-circularref/"
-    >fastjson的循环引用序列化</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        问题描述 使用fastjson进行对象序列化(JSON.toJSONString)时，如果需要格式化的对象中存在对象的循环引用，即A-&gt;
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/fastjson-circularref/" class="">
-  <time datetime="2021-05-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-31</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/fastjson/"> fastjson </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 243字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article></div>
-  
-<nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-    <ul class="pager pull-left"><li class="next">
-        <a href="/page/2/">
-          <i class="icon icon-angle-right"></i>
-          
-        </a>
-      </li>
-    </ul>
-    <div class="total-article bar-right">
-      Page:1/2
     </div>
-  </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="镜像构建简述">镜像构建简述</h1>
+<p>docker构建镜像，需要编写一个<code>Dockerfile</code>，指定构建的脚本，然后使用<code>docker build</code>命令进行构建</p>
+<p>需要以一个基础镜像为基础进行构建，在此镜像上，通过docker提供的一些命令来添加功能</p>
+<h1 id="镜像构建示例">镜像构建示例</h1>
+<p>如下是一个docker构建的示例</p>
+<ol>
+<li>
+<p>编写Dockerfile</p>
+<pre><code class="language-shell">mkdir mywebtest # 创建一个构建工作目录
+vim Dockerfile  # 编辑dockerfile 
+</code></pre>
+<p>其中，Dockerfile内容如下：</p>
+<pre><code class="language-dockerfile">FROM openjdk:8      # 使用java8做为基础镜像
+COPY ./lab-web.jar /usr/src/  # 将java web应用拷贝到java8镜像的相关目录中
+WORKDIR /usr/src    # 指定工作目录
+CMD [&quot;java&quot;, &quot;-jar&quot;, &quot;lab-web.jar&quot;]   # 指定docker run时执行的命令
+</code></pre>
+</li>
+<li>
+<p>执行构建命令</p>
+<pre><code class="language-shell">docker build -t mywebtest:test .  # 指定镜像的名称和标签，并指定使用当前目录下的dockerfile
+</code></pre>
+<p>命令的执行结果如下：</p>
+<pre><code>Sending build context to Docker daemon   30.3MB
+Step 1/4 : FROM openjdk:8
+ ---&gt; eca41db787bd
+Step 2/4 : COPY ./lab-web.jar /usr/src/
+ ---&gt; Using cache
+ ---&gt; c1280ab6e005
+Step 3/4 : WORKDIR /usr/src
+ ---&gt; Using cache
+ ---&gt; f15316e3e33e
+Step 4/4 : CMD [&quot;java&quot;, &quot;-jar&quot;, &quot;lab-web.jar&quot;]
+ ---&gt; Running in 96e58fb3087f
+Removing intermediate container 96e58fb3087f
+ ---&gt; c5bd3f8cd906
+Successfully built c5bd3f8cd906
+Successfully tagged myjavaweb:test
+</code></pre>
+</li>
+<li>
+<p>运行容器</p>
+<pre><code class="language-shell">docker run --name myjavaweb -p 8080:8080 myjavaweb:test
+</code></pre>
+</li>
+</ol>
+<h1 id="常用构建命令">常用构建命令</h1>
+<ol>
+<li>
+<p>FROM</p>
+<p>指定一个构建的基础镜像，一般都需要以FROM命令开始</p>
+</li>
+<li>
+<p>COPY</p>
+<p>拷贝文件命令，可以将本地的文件拷贝到镜像文件系统中。格式如下：</p>
+<pre><code class="language-shell">COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径1&gt;... &lt;目标路径&gt;
+</code></pre>
+</li>
+<li>
+<p>ADD</p>
+<p>也是拷贝文件命令，和COPY不同的是，如果拷贝的是压缩文件，会自动解压到目标目录。实现同样功能的前提下，官方推荐使用COPY命令</p>
+</li>
+<li>
+<p>WORKDIR</p>
+<p>指定工作目录，使用WORKDIR命令的目录，会在构建镜像的每一层都存在</p>
+</li>
+<li>
+<p>RUN</p>
+<p>在<code>go build</code>的时候执行命令，后面接具体的shell命令，比如将代码源码拷贝到镜像中，然后执行编译命令，如下:</p>
+<pre><code class="language-dockerfile">RUN javac Hello.java   # 在构建镜像的时候执行编辑java的命令
+</code></pre>
+</li>
+<li>
+<p>CMD</p>
+<p>也是执行命令的命令，和RUN不同的是，该命令是在<code>docker run</code>的时候执行，为启动的容器指定默认要运行的程序，程序运行结束，容器也就结束。<strong>CMD 指令指定的程序可被 <code>docker run</code> 命令行参数中指定要运行的程序所覆盖。</strong></p>
+<p>如果Dockerfile中指定了多个CMD命令，仅最后一个CMD命令有效</p>
+<pre><code class="language-dockerfile">CMD &lt;shell命令&gt;
+CMD [&quot;可执行命令&quot;, &quot;命令参数1&quot;, &quot;命令参数2&quot; ...]
+</code></pre>
+</li>
+<li>
+<p>ENTRYPOINT</p>
+<p>和CMD类似，也是<code>docker run</code>时执行命令，不同的是：ENTRYPOINT不会被<code> docker run</code> 的命令行参数指定的指令所覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序。</p>
+</li>
+<li>
+<p>ENV</p>
+<p>设置环境变量，在后续的命令中可以使用这些变量</p>
+<pre><code class="language-dockerfile">ENV &lt;key&gt; &lt;value&gt;
+ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt;...
+</code></pre>
+</li>
+<li>
+<p>ARG</p>
+<p>构建参数，与 ENV 作用一至。不过作用域不一样。ARG 设置的环境变量仅对 Dockerfile 内有效，也就是说只有 docker build 的过程中有效，构建好的镜像内不存在此环境变量。</p>
+<p>构建命令 docker build 中可以用 &ndash;build-arg &lt;参数名&gt;=&lt;值&gt; 来覆盖。</p>
+</li>
+</ol>
+<p>参考文章：</p>
+<ul>
+<li><a href="https://www.runoob.com/docker/docker-dockerfile.html">https://www.runoob.com/docker/docker-dockerfile.html</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://etoeto623.github.io/post/git-change-commit-msg/" title="git修改提交commit消息"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://etoeto623.github.io/post/heap-sort/"
+                    title="堆排序"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+        </div>
+    </div>
 </nav>
+
 
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="copyright">
@@ -637,6 +549,7 @@ function tagCloud(where, min, max) {
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>

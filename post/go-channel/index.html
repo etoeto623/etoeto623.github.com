@@ -2,7 +2,8 @@
 <html lang="zh">
   <head>
     <title>
-        Neo Blog</title>
+        go中的channel - Neo Blog
+      </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -19,25 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    
+    <meta name="description" content="简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心" />
     <meta name="generator" content="Hugo 0.83.1 with theme pure" />
-    <title>Neo Blog</title>
+    <title>go中的channel - Neo Blog</title>
     
-    <link rel="alternate" type="application/rss+xml" href="https://etoeto623.github.io/index.xml" title="Neo Blog" />
     
     <link rel="stylesheet" href="https://etoeto623.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="Neo Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://etoeto623.github.io/" />
+    <meta property="og:title" content="go中的channel" />
+<meta property="og:description" content="简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etoeto623.github.io/post/go-channel/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-04T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-04T00:00:00&#43;00:00" />
 
-<meta itemprop="name" content="Neo Blog">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Neo Blog"/>
-<meta name="twitter:description" content=""/>
+<meta itemprop="name" content="go中的channel">
+<meta itemprop="description" content="简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心"><meta itemprop="datePublished" content="2021-06-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1235">
+<meta itemprop="keywords" content="golang,channel," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="go中的channel"/>
+<meta name="twitter:description" content="简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -296,163 +301,20 @@ function tagCloud(where, min, max) {
 
     
     
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
 
-<main class="main" role="main">
-  
-  <div class="content article-list">
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
     
-    
-    
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/heap-sort/"
-    >堆排序</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        堆排序的简介 堆排序是一种选择排序，使用了堆这种数据结构。堆就是一种完全二叉树 核心思想就是将数组中的最大的数挑选出来，然后再将子数组的最大的数
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/heap-sort/" class="">
-  <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/algorithm/"> algorithm </a>
-    <a class="article-tag-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"> 排序算法 </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 588字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/docker-build/"
-    >构建docker镜像</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/docker-build/" class="">
-  <time datetime="2021-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-10</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/docker/"> docker </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1099字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/git-change-commit-msg/"
-    >git修改提交commit消息</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        修改最新提交的消息 修改最新一次提交的消息，只要一条命令即可，如下： git commit --amend 然后进入交互式的修改界面，修改后提交即可 修改历史提交的消息 如果需要修
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/git-change-commit-msg/" class="">
-  <time datetime="2021-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-09</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/git/"> git </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 330字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/redis-types/"
-    >redis的五种类型</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        redis中有五种数据类型，分别是： string hash set zset list string类型 最常用的就是string类型，以key-value的方式存在内存中 常用的命令 命
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/redis-types/" class="">
-  <time datetime="2021-06-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-08</time>
-</a>
-</span>
-
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2575字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
+    <div class="article-header">
+      <h1 itemprop="name">
   <a
     class="article-title"
     href="/post/go-channel/"
@@ -460,14 +322,11 @@ function tagCloud(where, min, max) {
   >
 </h1>
 
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心
-      </div>
-      <p class="article-meta">
+      <div class="article-meta">
+        
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/go-channel/" class="">
+<a href="https://etoeto623.github.io/post/go-channel/" class="article-date">
   <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
 </a>
 </span>
@@ -480,94 +339,168 @@ function tagCloud(where, min, max) {
 
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1235字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/go-concurrent/"
-    >go语言的并发</a
-  >
-</h1>
-
       </div>
-      <div class="article-entry text-muted" itemprop="description">
-        并发和并行 并发 并发是通过时间片轮转的方式，让多个任务在一个物理处理器上轮流执行，同一时间只有一个任务在执行 并行 并行是让多个任务在多个物理处理
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/go-concurrent/" class="">
-  <time datetime="2021-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-06-04</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/golang/"> golang </a>
-    <a class="article-tag-link" href="/tags/%E5%B9%B6%E5%8F%91/"> 并发 </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 603字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/post/fastjson-circularref/"
-    >fastjson的循环引用序列化</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        问题描述 使用fastjson进行对象序列化(JSON.toJSONString)时，如果需要格式化的对象中存在对象的循环引用，即A-&gt;
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://etoeto623.github.io/post/fastjson-circularref/" class="">
-  <time datetime="2021-05-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-31</time>
-</a>
-</span>
-  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/fastjson/"> fastjson </a>
-  </span>
-
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 243字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article></div>
-  
-<nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-    <ul class="pager pull-left"><li class="next">
-        <a href="/page/2/">
-          <i class="icon icon-angle-right"></i>
-          
-        </a>
-      </li>
-    </ul>
-    <div class="total-article bar-right">
-      Page:1/2
     </div>
-  </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="简介">简介</h1>
+<p>channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。</p>
+<p>Go并发的核心哲学是<em><strong>不要通过共享内存进行通信</strong></em>; 相反，通过沟通分享记忆。</p>
+<p>channel的操作符是<code>&lt;-</code>，如下表示channel的发送和接收操作：</p>
+<pre><code class="language-go">ch &lt;- 1. // 向ch中发送数据
+&lt;-ch;   // 从ch中取数据，也可以写成 &lt;- ch
+</code></pre>
+<p>其实这个很好记，很形象，<strong>箭头的方向就是数据的流动方向</strong></p>
+<h1 id="channel的操作">channel的操作</h1>
+<h2 id="创建channel">创建channel</h2>
+<p>使用<code>make</code>来创建channel，如下：</p>
+<pre><code class="language-go">ch := make(chan int)  // 创建一个channel，用来传递int型的数据
+cacheable_ch := make(chan float64, 100) // 创建一个带有缓存的channel，向其中写数据不会阻塞，除非缓存已满
+</code></pre>
+<p>创建channel需要指定数据类型，如果向channel中写其他类型的数据，会报错</p>
+<p>channel有如下几种类型：</p>
+<ul>
+<li>
+<p>读写channel</p>
+<pre><code class="language-go">make(chan int)   // 默认的就是读写channel
+</code></pre>
+</li>
+<li>
+<p>只读channel</p>
+<pre><code class="language-go">make(&lt;-chan int)  // 只读的channel，如果向里面写数据会报错
+// invalid operation: readch &lt;- 3 (send to receive-only type &lt;-chan int)
+</code></pre>
+</li>
+<li>
+<p>只写channel</p>
+<pre><code class="language-go">make(chan&lt;- int)  // 只写channel
+// invalid operation: &lt;-readch (receive from send-only type chan&lt;- int)
+</code></pre>
+</li>
+</ul>
+<h2 id="关闭channel">关闭channel</h2>
+<p>使用<code>close</code>来关闭channel，如下：</p>
+<pre><code class="language-go">ch := make(chan int)
+defer close(ch)  // 关闭channel，defer（延迟执行）表示它后面的语句在代码块执行完毕后执行
+go func(){ch &lt;- 1+2}()
+fmt.Println(&lt;-ch)
+</code></pre>
+<p>需要注意的是，<strong>向关闭的channel写数据会报错，但从关闭的channel中仍可以读数据</strong>，待channel中的数据读取完毕后，获取的指为0，且读取不会阻塞</p>
+<pre><code class="language-go">ch := make(chan int, 3)
+ch &lt;- 1+2
+close(ch)   // 关闭channel
+fmt.Println(&lt;-ch)   // 可以正常取出数据
+v,ok := &lt;-ch   // 取出的为0，ok=false
+fmt.Printf(&quot;value is %d, status is %b&quot;, v, ok)
+ch &lt;- 5  // panic: send on closed channel
+</code></pre>
+<h2 id="select-操作">select 操作</h2>
+<p>select是专门针对channel的一个操作，类似于switch，从select的众多case分支中，随机选择一个可用的channel，执行后续操作</p>
+<p>选中的那个case分支的channel会执行一次取数操作</p>
+<pre><code class="language-go">ch1, ch2 := make(chan int, 3), make(chan int, 3)
+for i := 0; i &lt; 3 ; i++ {
+  ch1 &lt;- i
+  ch2 &lt;- 9-i
+}
+select {
+  case &lt;-ch1:
+  fmt.Printf(&quot;ch1 select is: %d\n&quot;, &lt;-ch1)
+  case &lt;-ch2:
+  fmt.Printf(&quot;ch2 select is: %d\n&quot;, &lt;-ch2)
+}
+fmt.Printf(&quot;ch1 after is: %d\n&quot;, &lt;-ch1)
+fmt.Printf(&quot;ch2 after is: %d\n&quot;, &lt;-ch2)
+/** 
+如上代码可能打印
+ch1 select is: 1
+ch1 after is: 2
+ch2 after is: 9
+或者
+ch2 select is: 8
+ch1 after is: 0
+ch2 after is: 7
+*/
+
+</code></pre>
+<h2 id="channel中的超时机制">channel中的超时机制</h2>
+<p>结合select和time.After，可以时间channel的读取超时机制，如下：</p>
+<pre><code class="language-go">ch := make(chan string)
+select {
+  case v:=&lt;-ch:
+  fmt.Printf(&quot;channel v is: %s\n&quot;, v)
+  case &lt;-time.After(time.Second * 3):  // 超时3秒
+  fmt.Println(&quot;channel read timeout&quot;)
+}
+</code></pre>
+<h1 id="channel的一些应用">channel的一些应用</h1>
+<h2 id="在goroutine中同步">在goroutine中同步</h2>
+<pre><code class="language-go">ch := make(chan bool)
+defer close(ch)
+go func(){
+  time.Sleep(time.Second * 5)  // 耗时的任务
+  ch &lt;- true
+}()
+&lt;-ch  // 等待任务完成
+fmt.Println(&quot;goroutine is done&quot;)
+</code></pre>
+<h2 id="定时器">定时器</h2>
+<p><code>time</code>包中的NewTimer使用channel来实现定时功能，如下：</p>
+<pre><code class="language-go">fmt.Println(time.Now().Format(&quot;2006-01-02 15:04:05&quot;))
+timer := time.NewTimer(time.Second * 3)
+&lt;-timer.C   // timer.C是一个channel
+fmt.Printf(&quot;finished in %s\n&quot;, time.Now().Format(&quot;2006-01-02 15:04:05&quot;))
+</code></pre>
+<p>如上可以使用更简单的time.After来实现</p>
+<pre><code class="language-go">t := &lt;-time.After(time.Second * 3)
+fmt.Println(t)
+</code></pre>
+<p>NewTicker可以生成一个定时脉冲，如下：</p>
+<pre><code class="language-go">ticker := time.NewTicker(time.Second * 2)
+for t := range ticker.C {   // 使用range可以不断从channel中取值
+  fmt.Println(t)  // 间隔两秒打印一次
+}
+</code></pre>
+<h1 id="参考博客">参考博客</h1>
+<ul>
+<li><a href="https://www.runoob.com/w3cnote/go-channel-intro.html">go channel详解</a></li>
+<li><a href="http://c.biancheng.net/view/61.html">go语言的defer</a></li>
+<li><a href="https://blog.csdn.net/guyan0319/article/details/90201405">go channel实现原理</a></li>
+<li><a href="https://blog.csdn.net/winter_wu_1998/article/details/106657502">go channel和select—csdn</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://etoeto623.github.io/post/go-concurrent/" title="go语言的并发"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://etoeto623.github.io/post/redis-types/"
+                    title="redis的五种类型"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+        </div>
+    </div>
 </nav>
+
 
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="copyright">
@@ -637,6 +570,7 @@ function tagCloud(where, min, max) {
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>
