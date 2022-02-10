@@ -2,139 +2,193 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>netty on Neo Blog</title>
-    <link>http://blog.neoling.me:8090/tags/netty/</link>
+    <link>https://etoeto623.github.io/tags/netty/</link>
     <description>Recent content in netty on Neo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://blog.neoling.me:8090/tags/netty/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://etoeto623.github.io/tags/netty/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>MySQL的索引统计和选择</title>
+      <link>https://etoeto623.github.io/post/mysql%E7%9A%84%E7%B4%A2%E5%BC%95%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/mysql%E7%9A%84%E7%B4%A2%E5%BC%95%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%80%89%E6%8B%A9/</guid>
+      <description>本文主要介绍MySQL在执行sql时，优化器是怎么选择索引的，涉及到的知识点有： 优化器怎么统计数据 影响索引选择的因素有哪些 优化器选错索引时怎</description>
+    </item>
+    
+    <item>
+      <title>资源收集</title>
+      <link>https://etoeto623.github.io/post/resource-collect/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/resource-collect/</guid>
+      <description>这个帖子就是用来记录一些常用的资源网站导航 网站名 类型 网址 书享家 电子书 http://shuxiangjia.cn/ 学吧导航 自学 https://www.xue8nav.com/ 科塔学术 学术 https://site.sciping.com/ HiPPTer ppt资源 http://www.hippter.com/ 阿猫阿狗导航 工具 https://dh.woshipm.com/ 创造狮 工具</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud入门教程</title>
+      <link>https://etoeto623.github.io/post/spring-cloud-introduce/</link>
+      <pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/spring-cloud-introduce/</guid>
+      <description>微服务的优缺点 优点 服务独立部署 服务快速启动 更适合敏捷开发 专人维护专门的服务 服务可动态扩容 代码复用 缺点 分布式事务 分布式部署，调用复杂性高 测试的</description>
+    </item>
+    
+    <item>
+      <title>codesource的代码源码爬取</title>
+      <link>https://etoeto623.github.io/post/codesource-crawl/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/codesource-crawl/</guid>
+      <description>codesource是公司的一个源代码搜索平台，这里面有公司一些项目的源代码，可以在网页上进行查看。为了更方便的查看源代码，希望将源代码拉取</description>
+    </item>
+    
+    <item>
+      <title>go语言实现抢红包</title>
+      <link>https://etoeto623.github.io/post/go-red-pack/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/go-red-pack/</guid>
+      <description>package main import ( &amp;quot;fmt&amp;quot; &amp;quot;math/rand&amp;quot; &amp;quot;os&amp;quot; &amp;quot;sort&amp;quot; &amp;quot;strconv&amp;quot; &amp;quot;time&amp;quot; ) func main(){ args := os.Args if len(args) != 3 { fmt.Println(&amp;quot;wrong argument&amp;quot;) return } amount, err := strconv.ParseInt(args[1], 10, 32) if nil != err { fmt.Println(&amp;quot;wrong argument: amount&amp;quot;) return } total, err := strconv.ParseInt(args[2], 10, 32) if nil != err { fmt.Println(&amp;quot;wrong argument: total&amp;quot;) } fmt.Printf(&amp;quot;amount:%d, total:%d\n&amp;quot;, amount, total) maxRand := int(amount * 100) points := []int{} r :=</description>
+    </item>
+    
+    <item>
+      <title>go中使用grpc</title>
+      <link>https://etoeto623.github.io/post/go-with-grpc/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/go-with-grpc/</guid>
+      <description>grpc是谷歌推出的一套基于protobuf的跨语言rpc调用框架，使用protobuf协议进行信息编码，使用HTTP/2进行通信 环境准备 安</description>
+    </item>
+    
+    <item>
+      <title>go内建的基本rpc框架</title>
+      <link>https://etoeto623.github.io/post/go-builtin-rpc/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/go-builtin-rpc/</guid>
+      <description>go的内建原生rpc是通过服务端启动tcp服务，监听tcp请求，然后根据请求的服务名称和参数来实现远程服务调用的，相关的包为net/rpc r</description>
+    </item>
+    
+    <item>
+      <title>go语言实现大文件分割与合并</title>
+      <link>https://etoeto623.github.io/post/go-file-slice/</link>
+      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/go-file-slice/</guid>
+      <description>用途 本工具可以实现将大文件切割为指定大小的小文件块，以及将若干小文件块合并为大文件 ##使用方法 切割文件 file_slice split block_size source_path target_path 其中： block_size 整数，表示小文件块的</description>
+    </item>
+    
+    <item>
+      <title>脚本收集</title>
+      <link>https://etoeto623.github.io/post/script-collect/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://etoeto623.github.io/post/script-collect/</guid>
+      <description>git提交时自动生成模版msg #!/usr/bin/env groovy import static java.lang.System.exit import static java.lang.System.getenv import groovy.json.JsonSlurper import groovy.json.JsonBuilder import java.util.LinkedHashMap if(null == args || args.length == 0){ println &amp;quot;参数错误&amp;quot; exit(1) } if(&#39;--help&#39;.equals(args[0])){ println &amp;quot;&amp;quot;&amp;quot;Usage: gcommit commit_msg [taskId] 应用分支对应的ta</description>
+    </item>
+    
+    <item>
       <title>go简介</title>
-      <link>http://blog.neoling.me:8090/post/go-intro/</link>
+      <link>https://etoeto623.github.io/post/go-intro/</link>
       <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/go-intro/</guid>
+      <guid>https://etoeto623.github.io/post/go-intro/</guid>
       <description>输入输出 通过flag包获取命令行参数 命令行参数获取可以通过os.Args，但这种方式比较原始，参数是通过一个字符串数组传递，需要自己写代码处</description>
     </item>
     
     <item>
       <title>堆排序</title>
-      <link>http://blog.neoling.me:8090/post/heap-sort/</link>
+      <link>https://etoeto623.github.io/post/heap-sort/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/heap-sort/</guid>
+      <guid>https://etoeto623.github.io/post/heap-sort/</guid>
       <description>堆排序的简介 堆排序是一种选择排序，使用了堆这种数据结构。堆就是一种完全二叉树 核心思想就是将数组中的最大的数挑选出来，然后再将子数组的最大的数</description>
     </item>
     
     <item>
       <title>构建docker镜像</title>
-      <link>http://blog.neoling.me:8090/post/docker-build/</link>
+      <link>https://etoeto623.github.io/post/docker-build/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/docker-build/</guid>
+      <guid>https://etoeto623.github.io/post/docker-build/</guid>
       <description>镜像构建简述 docker构建镜像，需要编写一个Dockerfile，指定构建的脚本，然后使用docker build命令进行构建 需要以一个基础</description>
     </item>
     
     <item>
       <title>git修改提交commit消息</title>
-      <link>http://blog.neoling.me:8090/post/git-change-commit-msg/</link>
+      <link>https://etoeto623.github.io/post/git-change-commit-msg/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/git-change-commit-msg/</guid>
+      <guid>https://etoeto623.github.io/post/git-change-commit-msg/</guid>
       <description>修改最新提交的消息 修改最新一次提交的消息，只要一条命令即可，如下： git commit --amend 然后进入交互式的修改界面，修改后提交即可 修改历史提交的消息 如果需要修</description>
     </item>
     
     <item>
       <title>redis的五种类型</title>
-      <link>http://blog.neoling.me:8090/post/redis-types/</link>
+      <link>https://etoeto623.github.io/post/redis-types/</link>
       <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/redis-types/</guid>
+      <guid>https://etoeto623.github.io/post/redis-types/</guid>
       <description>redis中有五种数据类型，分别是： string hash set zset list string类型 最常用的就是string类型，以key-value的方式存在内存中 常用的命令 命</description>
     </item>
     
     <item>
       <title>go中的channel</title>
-      <link>http://blog.neoling.me:8090/post/go-channel/</link>
+      <link>https://etoeto623.github.io/post/go-channel/</link>
       <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/go-channel/</guid>
+      <guid>https://etoeto623.github.io/post/go-channel/</guid>
       <description>简介 channel是go中的一个重要的概念，可以看成是一个数据的管道，数据发送端和接收端可以通过channel进行数据的传递。 Go并发的核心</description>
     </item>
     
     <item>
       <title>go语言的并发</title>
-      <link>http://blog.neoling.me:8090/post/go-concurrent/</link>
+      <link>https://etoeto623.github.io/post/go-concurrent/</link>
       <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/go-concurrent/</guid>
+      <guid>https://etoeto623.github.io/post/go-concurrent/</guid>
       <description>并发和并行 并发 并发是通过时间片轮转的方式，让多个任务在一个物理处理器上轮流执行，同一时间只有一个任务在执行 并行 并行是让多个任务在多个物理处理</description>
     </item>
     
     <item>
       <title>fastjson的循环引用序列化</title>
-      <link>http://blog.neoling.me:8090/post/fastjson-circularref/</link>
+      <link>https://etoeto623.github.io/post/fastjson-circularref/</link>
       <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/fastjson-circularref/</guid>
+      <guid>https://etoeto623.github.io/post/fastjson-circularref/</guid>
       <description>问题描述 使用fastjson进行对象序列化(JSON.toJSONString)时，如果需要格式化的对象中存在对象的循环引用，即A-&amp;gt;</description>
     </item>
     
     <item>
       <title>基于netty的异步http请求</title>
-      <link>http://blog.neoling.me:8090/post/netty-async-http/</link>
+      <link>https://etoeto623.github.io/post/netty-async-http/</link>
       <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/netty-async-http/</guid>
+      <guid>https://etoeto623.github.io/post/netty-async-http/</guid>
       <description>代码目录 代码目录如下： asynchttp – AsyncClient – AsyncHttpMain – GenericHandler – HttpHandler 参考地址 代码示例 AsyncClient import io.netty.bootstrap.Bootstrap; import io.netty.channel.ChannelFuture; import io.netty.channel.ChannelInitializer; import io.netty.channel.ChannelOption; import io.netty.channel.EventLoopGroup; import io.netty.channel.nio.NioEventLoopGroup; import io.netty.channel.socket.SocketChannel; import io.netty.channel.socket.nio.NioSocketChannel; import io.netty.handler.codec.http.DefaultFullHttpRequest; import io.netty.handler.codec.http.HttpMethod; import io.netty.handler.codec.http.HttpRequestEncoder; import io.netty.handler.codec.http.HttpResponseDecoder; import io.netty.handler.codec.http.HttpVersion; import io.netty.util.concurrent.EventExecutorGroup; import org.apache.commons.lang3.time.DateFormatUtils; import java.net.URI; import java.util.Date; import java.util.Map; public class AsyncClient { final</description>
     </item>
     
     <item>
       <title>ubuntu中安装latex</title>
-      <link>http://blog.neoling.me:8090/post/latex-start/</link>
+      <link>https://etoeto623.github.io/post/latex-start/</link>
       <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/latex-start/</guid>
+      <guid>https://etoeto623.github.io/post/latex-start/</guid>
       <description>总览 ubuntu中使用latex，需要用到texlive（latex核心系统）和texmaker（latex编辑器），同时需要中文支持的话，</description>
     </item>
     
     <item>
       <title>测试文档</title>
-      <link>http://blog.neoling.me:8090/post/pattern/</link>
+      <link>https://etoeto623.github.io/post/pattern/</link>
       <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.neoling.me:8090/post/pattern/</guid>
+      <guid>https://etoeto623.github.io/post/pattern/</guid>
       <description>test 测试行内$y=mc^2$公式 名字 年龄 大小 张三 23 1 盾 李四 24 2 另一个 29 3 $$ f(x)=\int_{-\infty}^\infty\widehat f\xi\,e^{2\pi i\xi x}\,d\xi $$</description>
-    </item>
-    
-    <item>
-      <title>hugo 的使用</title>
-      <link>http://blog.neoling.me:8090/post/hugo_use/</link>
-      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.neoling.me:8090/post/hugo_use/</guid>
-      <description>安装 hugo hugo 是使用 go 开发的，所以需要安装 go。go 的安装步骤参考官网 export PATH=$PATH:/usr/local/go/bin 下载 hugo 参考hugo github的步骤将 mkdir $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install hugo 的使用 参考hu</description>
-    </item>
-    
-    <item>
-      <title>关于我</title>
-      <link>http://blog.neoling.me:8090/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.neoling.me:8090/about/</guid>
-      <description>who am i, neolong</description>
-    </item>
-    
-    <item>
-      <title>数学公式的使用</title>
-      <link>http://blog.neoling.me:8090/post/math/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.neoling.me:8090/post/math/</guid>
-      <description>$$\begin{cases} a_1x+b_1y+c_1z=d_1\\ a_2x+b_2y+c_2z=d_2\\ a_3x+b_3y+c_3z=d_3\\ \end{cases} $$</description>
     </item>
     
   </channel>
