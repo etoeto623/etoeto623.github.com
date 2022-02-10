@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Neo Blog</title>
-    <link>https://etoeto623.github.io/tags/</link>
-    <description>Recent content in Tags on Neo Blog</description>
+    <title>MySQL on Neo Blog</title>
+    <link>https://etoeto623.github.io/tags/mysql/</link>
+    <description>Recent content in MySQL on Neo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://etoeto623.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://etoeto623.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
