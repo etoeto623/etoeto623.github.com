@@ -13,10 +13,10 @@
     
     <item>
       <title>MySQL的索引统计和选择</title>
-      <link>https://etoeto623.github.io/post/mysql%E7%9A%84%E7%B4%A2%E5%BC%95%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%80%89%E6%8B%A9/</link>
+      <link>https://etoeto623.github.io/post/mysql_index_statistic_and_choice/</link>
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://etoeto623.github.io/post/mysql%E7%9A%84%E7%B4%A2%E5%BC%95%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%80%89%E6%8B%A9/</guid>
+      <guid>https://etoeto623.github.io/post/mysql_index_statistic_and_choice/</guid>
       <description>本文主要介绍MySQL在执行sql时，优化器是怎么选择索引的，涉及到的知识点有： 优化器怎么统计数据 影响索引选择的因素有哪些 优化器选错索引时怎</description>
     </item>
     
